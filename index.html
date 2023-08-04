@@ -1,0 +1,14 @@
+<html>
+<body>
+  <input type="file" id="fileInput" multiple>
+</body>
+<script>
+  const fileInput = document.getElementById('fileInput');
+  
+  fileInput.addEventListener('change', (event) => {
+    const selectedFiles = Array.from(event.target.files);
+    // Communicate with Flutter app to pass selected files.
+    window.flutter_inappwebview.callHandler('fileUploadHandler', selectedFiles);
+  });
+</script>
+</html>
